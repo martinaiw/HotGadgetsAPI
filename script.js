@@ -116,4 +116,7 @@ const toggleLoader = (isLoading) => {
         loader.classList.add('hidden');
     }
 }
-loadPhones('iphone', false);
+const defaultBrands = ['iphone', 'samsung', 'oppo', 'huawei'];
+const randomBrand = defaultBrands[Math.floor(Math.random() * defaultBrands.length)];
+
+loadPhones(randomBrand, false);
