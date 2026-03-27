@@ -30,7 +30,7 @@ In this project, I applied core JavaScript functionalities taught during the int
 
 * `index.html` - Semantic structure and main components (Hero, Search, Results).
 * `style.css` - Custom styling, animations, and responsiveness.
-* `app.js` - Main logic, API integration, and UI updates.
+* `script.js` - Main logic, API integration, and UI updates.
 
 ---
 
