@@ -116,3 +116,4 @@ const toggleLoader = (isLoading) => {
         loader.classList.add('hidden');
     }
 }
+loadPhones('iphone', false);
