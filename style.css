@@ -1,0 +1,247 @@
+/* General reset and font setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --accent-color: #32BCDB; 
+    --accent-hover: #2ba7c4;
+    --text-dark: #101828;
+    --text-gray: #667085;
+    --bg-light: #F3F3F3;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar styles */
+.navbar { padding: 20px 0; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: 700; }
+
+/* Hero Section with subtle background tint */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(50, 188, 219, 0.05); 
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+.hero h1 { font-size: 48px; margin-bottom: 20px; }
+.hero p { max-width: 700px; margin: 0 auto 30px; color: var(--text-gray); }
+.hero-image img { max-width: 350px; margin-top: 40px; }
+
+/* Search Bar customization */
+.search-section { text-align: center; margin-bottom: 40px; }
+.search-box { display: flex; justify-content: center; margin-top: 20px; }
+
+input {
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px 0 0 8px;
+    background: var(--bg-light);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--accent-color);
+}
+
+.btn-search {
+    padding: 15px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: var(--accent-hover);
+    padding-left: 35px;
+}
+
+/* Results Grid with entry animation */
+.phone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* Phone Card animations and hover effects */
+.phone-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 15px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.phone-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(50, 188, 219, 0.15);
+    border-color: var(--accent-color);
+}
+
+.phone-card img {
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.phone-card:hover img {
+    transform: scale(1.05); 
+}
+
+/* Reusable Button Styles */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 188, 219, 0.3);
+}
+
+.show-all-section { text-align: center; margin-top: 40px; }
+
+.btn-all {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-all:hover {
+    background-color: var(--accent-hover);
+    letter-spacing: 1px;
+}
+
+.hidden { display: none; }
+
+/* Animated Loading Spinner */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; 
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.hidden {
+    display: none !important; 
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; 
+    z-index: -1; 
+}
+.modal-content {
+    background: white;
+    padding: 40px; 
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: left;
+    z-index: 10000; 
+    animation: modalPop 0.3s ease-out;
+}
+
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-gray);
+    z-index: 10001; 
+    line-height: 1;
+}
+
+.btn-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#modal-info h2 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+/* Footer Section */
+.footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 60px 0;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
